@@ -21,25 +21,28 @@
 {% end %}
 <hr />
 
-<h3 class="text-center">
-    {{ problem["alias"] or problem["title"] }}
-</h3>
-
 <p class="text-muted pull-right">
-    Time Limit: {{ problem["Time limit"] }}/
-    Memory Limit: {{ problem["Memory limit"] }}
+    Time Limit: {{ problem["timelimit"] }} ms /
+    Memory Limit: {{ problem["memorylimit"] }} kb
 </p>
 
 <h4>Description</h4>
-<iframe
-        id="frame-description"
-        src="{{ problem['description_url'] }}"
-        width="100%"
-        height="900px"
-        frameborder="0"
-        scrolling="auto"></iframe>
+<p>{% raw problem["description"] %}</p>
+
+<h4>Input</h4>
+<p>{% raw problem["input"] %}</p>
+
+<h4>Output</h4>
+<p>{% raw problem["output"] %}</p>
+
+<h4>Sample Input</h4>
+<pre>{% raw problem["sampleinput"] %}</pre>
+
+<h4>Sample Output</h4>
+<pre>{% raw problem["sampleoutput"] %}</pre>
+
 <h4>Source</h4>
-<pre>{% raw problem['source'].strip() if problem['source'].strip() else 'None' %}</pre>
+<pre>{% raw problem["source"].strip() if problem["source"].strip() else "None" %}</pre>
 
 <form name="codeForm" action="/contest/submit/{{ str(contest['_id']) }}" method="POST">
     <input type="hidden" name="n" value="{{ n }}" />

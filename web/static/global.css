@@ -1,5 +1,22 @@
+body {
+    background-color: #f9fafe;
+}
+
+h3 {
+    margin: 0;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+pre {
+    background-color: #fbfbfb;
+}
+
 #layout-body {
-    margin-top: 50px;
+    margin-top: 70px;
+    padding: 0;
 }
 
 .result-queueing {

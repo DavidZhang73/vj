@@ -54,9 +54,8 @@ class Handler(RequestHandler):
 
     @gen.coroutine
     def _find_problem(self, soj, sid):
-        print(soj, sid)
         problem = yield self.settings["database"]["problem"].find_one({
-            "soj": str(soj), "sid": str(sid),
+            "soj": str(soj), "sid": int(sid),
         })
         if not problem:
             raise RuntimeError("No record")
