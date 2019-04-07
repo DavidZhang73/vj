@@ -29,7 +29,7 @@ class Handler(RequestHandler):
         except ValueError:
             params["page"] = 1
         try:
-            params["sid"] = self.get_argument("sid", default="")
+            params["sid"] = int(self.get_argument("sid", default=""))
         except ValueError:
             params["sid"] = ""
         params["soj"] = self.get_argument("soj", default="")

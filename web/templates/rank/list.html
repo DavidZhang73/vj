@@ -6,17 +6,17 @@
 <h6>榜单每日1点更新, 排名顺序: ['total_ac', 'last_submit_time']</h6>
 <form id="filters" class="form-inline">
     <input id="filters-page" type="hidden" name="page" value="1"/>
-    <input type="text" name="nickname" value="{{ params['nickname'] }}" placeholder="Nickname - RegExp" class="form-control" />&nbsp;
-    <input type="text" name="rank" value="{{ params['rank'] }}" placeholder="Rank" class="form-control"/>
+    <input type="text" name="nickname" value="{{ params['nickname'] }}" placeholder="Nickname - RegExp" class="form-control" />
+    <input type="number" name="rank" value="{{ params['rank'] }}" placeholder="Rank" class="form-control"/>
     <button type="submit" class="btn btn-primary">
         <span class="glyphicon glyphicon-search"></span>
-    </button>&nbsp;
+    </button>
     <a href="/rank" class="btn btn-default">
         <span class="glyphicon glyphicon-trash"></span>
     </a>
 </form>
 
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Nickname</th>

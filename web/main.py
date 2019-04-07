@@ -1,4 +1,5 @@
 """Web模块"""
+from os import environ
 
 import tornado.web
 import tornado.ioloop
@@ -35,7 +36,13 @@ import controllers.api.user.record
 import controllers.api.user.resetpassword
 import controllers.api.submit.resubmit
 
+debug = False
+
+if environ.get('ENV') == 'DEV':
+    debug = True
+
 settings = {
+    'debug': debug,
     "static_path": config.static_path,
     "template_path": config.template_path,
     "rows_per_page": config.rows_per_page,
