@@ -14,7 +14,7 @@
 
 {% for i in range(len(contest["problems"])) %}
     {% if i == n %}
-        <a href="/contest/problem/{{ str(contest['_id']) }}?n={{ i }}" class="btn btn-primary">{{ chr(ord('A') + i) }}</a>&nbsp;
+        <a href="/contest/problem/{{ str(contest['_id']) }}?n={{ i }}" class="btn btn-info">{{ chr(ord('A') + i) }}</a>&nbsp;
     {% else %}
         <a href="/contest/problem/{{ str(contest['_id']) }}?n={{ i }}" class="btn btn-default">{{ chr(ord('A') + i) }}</a>&nbsp;
     {% end %}
