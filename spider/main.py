@@ -70,8 +70,8 @@ def process(oj):
         except ValueError:
             print("[ERROR] No such sid %s-%d" % (oj.name, sid))
             no_such_sid_times += 1
-            if no_such_sid_times >= 100:
-                print("[INFO] Continuous 100 problems from %s can not be crawled" % oj.name)
+            if no_such_sid_times >= 120:
+                print("[INFO] Continuous 120 problems from %s can not be crawled" % oj.name)
                 break
             sid += 1
             continue
