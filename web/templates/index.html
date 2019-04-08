@@ -2,17 +2,41 @@
 {% block body %}
 
 <h3>Sduwh Virtual Judge</h3>
-<hr />
+<hr/>
 
 <div class="jumbotron" style="background-color: #fff; padding: 20px 20px 0 20px">
-    <p>Welcome</p>
-    <p>Supported OJ:</p>
-    <ul>
-        <li><p>HDU</p></li>
-        <li><p>POJ</p></li>
-	    <li><p>SDUT</p></li>
-    </ul>
+	<p>Welcome</p>
+	<p>Supported OJ:</p>
+	<ul>
+		<li><p>HDU <span id="hdu-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
+		<li><p>POJ <span id="poj-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
+		<li><p>SDUT <span id="sdut-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
+	</ul>
 	<p>Any Question? <a href="https://github.com/DavidZhang73/vj/issues">Issue here</a></p>
 </div>
-
+<script>
+	window.onload = () => {
+		checkStatus('HDU').then(data => {
+			document.getElementById('hdu-status').innerHTML = getStatusHTML(data)
+		})
+		checkStatus('POJ').then(data => {
+			document.getElementById('poj-status').innerHTML = getStatusHTML(data)
+		})
+		checkStatus('SDUT').then(data => {
+			document.getElementById('sdut-status').innerHTML = getStatusHTML(data)
+		})
+	}
+	getStatusHTML = (flag) => {
+		if (flag === 'True') {
+			return `<i class="glyphicon glyphicon-ok-circle" style="color: green"></i>`
+		} else {
+			return `<i class="glyphicon glyphicon-remove-circle" style="color: red"></i>`
+		}
+	}
+	checkStatus = vj => {
+		return fetch('/api/index/status/' + vj).then(res => {
+			return res.text()
+		})
+	}
+</script>
 {% end %}

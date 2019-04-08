@@ -9,7 +9,6 @@ class Handler(RequestHandler):
 
     @gen.coroutine
     def get(self, submit_id):
-        print(submit_id)
         r = yield self.settings["database"]["submission"].update_one({
             '_id': ObjectId(submit_id)
         },{

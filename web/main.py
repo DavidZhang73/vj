@@ -35,6 +35,7 @@ import controllers.signupdelete
 import controllers.api.user.record
 import controllers.api.user.resetpassword
 import controllers.api.submit.resubmit
+import controllers.api.index.status
 
 debug = False
 
@@ -80,6 +81,7 @@ def main():
         (r'/api/user/record', controllers.api.user.record.Handler),
         (r'/api/user/resetpassword', controllers.api.user.resetpassword.Handler),
         (r'/api/submit/resubmit/(.+?)', controllers.api.submit.resubmit.Handler),
+        (r'/api/index/status/(.+?)', controllers.api.index.status.Handler),
     ],
     **settings).listen(config.port)
     tornado.ioloop.IOLoop.current().start()

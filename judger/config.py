@@ -19,9 +19,6 @@ timeout = 30  # s
 # 页面访问间隔
 time_interval = 0.5  # s
 
-# scylla 代理
-scylla_proxy = None  # {'http': 'http://{}:8081'.format(host)}
-
 # 账号信息
 # 用于向OJ提交代码
 accounts = {

@@ -1,4 +1,4 @@
-import support.HDU
+import support.SDUT
 
 import config
 
@@ -13,4 +13,4 @@ int main()
     return 0;
 }
 '''
-print(support.HDU.Runner(config.accounts['HDU'], 3, 1).judge(1000, 0, code))
+print(support.SDUT.Runner(config.accounts['SDUT'], 3, 1).judge(1000, 0, code))

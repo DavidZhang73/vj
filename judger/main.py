@@ -44,7 +44,7 @@ def serve():
                 "SDUT": support.SDUT.Runner,
             }[sub["soj"]]
             sub["runid"], sub["result"], sub["timeused"], sub["memoryused"], sub["errorinfo"] = \
-                ojclass(config.accounts[sub["soj"]], config.timeout, config.time_interval, config.scylla_proxy).judge(
+                ojclass(config.accounts[sub["soj"]], config.timeout, config.time_interval, None).judge(
                     sub["sid"],
                     sub["language"],
                     sub["code"])
