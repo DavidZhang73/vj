@@ -1287,14 +1287,18 @@
 }
 
 .wrapper .function-bar .scal-wrap:hover .problem {
-    transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, 0deg);
 }
 
 .wrapper .function-bar .scal-wrap:hover .submission {
-    transform: rotate3d(0, 0, 1, -20deg);
+    transform: rotate3d(0, 0, 1, -10deg);
 }
 
 .wrapper .function-bar .scal-wrap:hover .contest {
+    transform: rotate3d(0, 0, 1, -20deg);
+}
+
+.wrapper .function-bar .scal-wrap:hover .rank {
     transform: rotate3d(0, 0, 1, -30deg);
 }
 
@@ -1310,7 +1314,9 @@
 
 .wrapper .function-bar .scal-wrap .submission a { color: #85CBF8; }
 
-.wrapper .function-bar .scal-wrap .contest a { color: #72C9AF; }
+.wrapper .function-bar .scal-wrap .contest a { color: #8A6BBE; }
+
+.wrapper .function-bar .scal-wrap .rank a { color: #72C9AF; }
 
 .wrapper .function-bar .scal-wrap .logout a { color: #D27337; }
 
@@ -1326,6 +1332,10 @@
 
 .wrapper .function-bar .scal-wrap .contest:hover {
     text-shadow: 1px 1px 3px #72C9AF;
+}
+
+.wrapper .function-bar .scal-wrap .rank:hover {
+    text-shadow: 1px 1px 3px #8A6BBE;
 }
 
 .wrapper .function-bar .scal-wrap .logout:hover {

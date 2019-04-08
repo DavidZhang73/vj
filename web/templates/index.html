@@ -8,11 +8,14 @@
 	<p>Welcome</p>
 	<p>Supported OJ:</p>
 	<ul>
-		<li><p>HDU <span id="hdu-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
-		<li><p>POJ <span id="poj-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
-		<li><p>SDUT <span id="sdut-status"><i class="glyphicon glyphicon-refresh"></i></span></p></li>
+		<li><p>HDU <span id="hdu-status"><i class="glyphicon glyphicon-refresh"></i></span>
+		</p></li>
+		<li><p>POJ <span id="poj-status"><i class="glyphicon glyphicon-refresh"></i></span>
+		</p></li>
+		<li><p>SDUT <span id="sdut-status"><i class="glyphicon glyphicon-refresh"></i></span>
+		</p></li>
 	</ul>
-	<p>Any Question? <a href="https://github.com/DavidZhang73/vj/issues">Issue here</a></p>
+	<p>Any Question? <a href="https://github.com/DavidZhang73/vj/issues" target="_blank">Issue here</a></p>
 </div>
 <script>
 	window.onload = () => {
@@ -28,9 +31,9 @@
 	}
 	getStatusHTML = (flag) => {
 		if (flag === 'True') {
-			return `<i class="glyphicon glyphicon-ok-circle" style="color: green"></i>`
+			return `<i class="glyphicon glyphicon-ok-circle" style="color: green; vertical-align: -2px"></i>`
 		} else {
-			return `<i class="glyphicon glyphicon-remove-circle" style="color: red"></i>`
+			return `<i class="glyphicon glyphicon-remove-circle" style="color: red; vertical-align: -2px"></i> (远程OJ错误)`
 		}
 	}
 	checkStatus = vj => {
