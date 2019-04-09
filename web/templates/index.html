@@ -36,12 +36,12 @@
 				let oj = ojList[i]
 				OJ_ITME_WORKING_HTML = `
 	<li>
-		<p>${oj.name} <span><i class="glyphicon glyphicon-ok-circle" style="color: green; vertical-align: -2px"></i></span></p>
+		<p><a href="${oj.url}">${oj.name}</a> <span><i class="glyphicon glyphicon-ok-circle" style="color: green; vertical-align: -2px"></i></span></p>
 	</li>
 	`
 				OJ_ITME_NOTWORKING_HTML = `
 	<li>
-		<p>${oj.name} <span><i class="glyphicon glyphicon-remove-circle" style="color: red; vertical-align: -2px"></i> (${oj.status})</span></p>
+		<p><a href="${oj.url}">${oj.name}</a> <span><i class="glyphicon glyphicon-remove-circle" style="color: red; vertical-align: -2px"></i> (${oj.status})</span></p>
 	</li>
 	`
 				if (ojList[i].status === 'Working') {
