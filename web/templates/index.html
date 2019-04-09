@@ -7,39 +7,51 @@
 <div class="jumbotron" style="background-color: #fff; padding: 20px 20px 0 20px">
 	<p>Welcome</p>
 	<p>Supported OJ:</p>
-	<ul>
-		<li><p>HDU <span id="hdu-status"><i class="glyphicon glyphicon-refresh"></i></span>
-		</p></li>
-		<li><p>POJ <span id="poj-status"><i class="glyphicon glyphicon-refresh"></i></span>
-		</p></li>
-		<li><p>SDUT <span id="sdut-status"><i class="glyphicon glyphicon-refresh"></i></span>
-		</p></li>
+	<ul id="oj-list">
+		<li>
+			<p>HDU <span id="hdu-status"><i class="glyphicon glyphicon-refresh"
+			                                style="vertical-align: -2px"></i></span></p>
+		</li>
+		<li>
+			<p>POJ <span id="poj-status"><i class="glyphicon glyphicon-refresh"
+			                                style="vertical-align: -2px"></i></span></p>
+		</li>
+		<li>
+			<p>SDUT <span id="sdut-status"><i class="glyphicon glyphicon-refresh"
+			                                  style="vertical-align: -2px"></i></span></p>
+		</li>
 	</ul>
 	<p>Any Question? <a href="https://github.com/DavidZhang73/vj/issues" target="_blank">Issue here</a></p>
 </div>
 <script>
-	window.onload = () => {
-		checkStatus('HDU').then(data => {
-			document.getElementById('hdu-status').innerHTML = getStatusHTML(data)
-		})
-		checkStatus('POJ').then(data => {
-			document.getElementById('poj-status').innerHTML = getStatusHTML(data)
-		})
-		checkStatus('SDUT').then(data => {
-			document.getElementById('sdut-status').innerHTML = getStatusHTML(data)
+	getStatus = () => {
+		return fetch('/api/index/oj').then(res => {
+			return res.json()
 		})
 	}
-	getStatusHTML = (flag) => {
-		if (flag === 'True') {
-			return `<i class="glyphicon glyphicon-ok-circle" style="color: green; vertical-align: -2px"></i>`
-		} else {
-			return `<i class="glyphicon glyphicon-remove-circle" style="color: red; vertical-align: -2px"></i> (远程OJ错误)`
-		}
-	}
-	checkStatus = vj => {
-		return fetch('/api/index/status/' + vj).then(res => {
-			return res.text()
+	render = () => {
+		getStatus().then(ojList => {
+			document.getElementById('oj-list').innerHTML = ''
+			for (let i = 0; i < ojList.length; i++) {
+				let oj = ojList[i]
+				OJ_ITME_WORKING_HTML = `
+	<li>
+		<p>${oj.name} <span><i class="glyphicon glyphicon-ok-circle" style="color: green; vertical-align: -2px"></i></span></p>
+	</li>
+	`
+				OJ_ITME_NOTWORKING_HTML = `
+	<li>
+		<p>${oj.name} <span><i class="glyphicon glyphicon-remove-circle" style="color: red; vertical-align: -2px"></i> (${oj.status})</span></p>
+	</li>
+	`
+				if (ojList[i].status === 'Working') {
+					document.getElementById('oj-list').innerHTML += OJ_ITME_WORKING_HTML
+				} else {
+					document.getElementById('oj-list').innerHTML += OJ_ITME_NOTWORKING_HTML
+				}
+			}
 		})
 	}
+	render()
 </script>
 {% end %}

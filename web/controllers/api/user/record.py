@@ -29,7 +29,7 @@ class Handler(RequestHandler):
                 if user.get('last_submit_time') else -1,
             })
         elif params['type'] == 'others':
-            self.write({
+            self.write({ 
                 'rank': (yield self._get_rank(user)),
                 'first_ac': (yield self._get_first_ac(username)),
                 'last_ac': (yield self._get_last_ac(username)),
