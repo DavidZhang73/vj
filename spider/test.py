@@ -102,6 +102,6 @@ def process(oj):
 
 
 if __name__ == "__main__":
-    p = crawl(support.SDUT, 2176)
-    print(bytes(p['description'], encoding='utf-8'))
-    print(p['description'])
+    p = crawl(support.SDUT, 1000)
+    print(bytes(p['source'], encoding='utf-8'))
+    print(p['source'])

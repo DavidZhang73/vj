@@ -19,7 +19,7 @@ regexp = {
     "output": r'<h4>Output</h4>[\s\S]*?<div class="prob-content">([.\s\S]+?)</div>\n\t\t\t\t<h4>Sample Input',
     "sampleinput": r'<h4>Sample Input</h4>[\s\S]*?<div class="prob-content">[\s\S]*?<pre>([.\s\S]+?)</pre>[\s\S]*?</div>[\s\S]*?<h4>Sample Output',
     "sampleoutput": r'<h4>Sample Output</h4>[\s\S]*?<div class="prob-content">[\s\S]*?<pre>([.\s\S]+?)</pre>[\s\S]*?</div>[\s\S]*?<h4>Hint',
-    "source": r'<h4>Author</h4>[\s\S]*?<div class="prob-content">([.\s\S]+?)</div>',
+    "source": r'<h4>Source</h4>[\s\S]*?<div class="prob-content">\n\t\t\t\t([.\s\S]+?)\t\t\t\t</div>',
 }
 
 def replace_src(description):
